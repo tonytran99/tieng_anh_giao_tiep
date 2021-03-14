@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import './../../components/component_common.dart';
 import './../../components/download_component.dart';
-import './../../db/db_story.dart';
+import './../../db/db_conversation.dart';
 import './../../db/db_topic.dart';
 import './../../localization/language_constants.dart';
 import './../../main.dart';

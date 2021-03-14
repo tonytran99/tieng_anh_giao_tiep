@@ -12,12 +12,17 @@ class DBTopic {
 
   static const String ID = 'id';
   static const String UID = 'uid';
-  static const String NAME = 'name';
-  static const String DESCRIPTION = 'description';
+  static const String NAME_EN = 'nameEn';
+  static const String NAME_VI = 'nameVi';
+  static const String DESCRIPTION_EN = 'descriptionEn';
+  static const String DESCRIPTION_VI = 'descriptionVi';
   static const String PHOTO = 'photo';
   static const String CREATED_AT = 'createdAt';
   static const String UPDATED_AT = 'updatedAt';
-  static const String TOTAL_STORIES = 'totalStories';
+  static const String LIST_PARENT = 'listParent';
+  static const String HAS_CHILD_TOPIC = 'hasChildTopic';
+  static const String PARENT_ID = 'parentId';
+
 
   Future<Database> get db async {
     if (_db != null) {
@@ -35,7 +40,7 @@ class DBTopic {
   }
 
   _onCreate(Database db, int version) async {
-    await db.execute("CREATE TABLE $TABLE ($ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $UID TEXT, $NAME TEXT, $DESCRIPTION TEXT, $PHOTO TEXT, $CREATED_AT TEXT, $UPDATED_AT TEXT, $TOTAL_STORIES INTEGER)");
+    await db.execute("CREATE TABLE $TABLE ($ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $UID TEXT, $NAME_EN TEXT, $NAME_VI TEXT,$DESCRIPTION_EN TEXT, $DESCRIPTION_VI TEXT, $PHOTO TEXT, $CREATED_AT TEXT, $UPDATED_AT TEXT, $HAS_CHILD_TOPIC INTEGER, $LIST_PARENT TEXT, $PARENT_ID INTEGER)");
   }
 
   Future<Topic> save(Topic topic) async {
@@ -46,7 +51,31 @@ class DBTopic {
 
   Future<List<Topic>> getTopics() async {
     var dbClient = await db;
-    List<Map> maps = await dbClient.query(TABLE, columns: [ID, UID, NAME, DESCRIPTION, PHOTO, CREATED_AT, UPDATED_AT, TOTAL_STORIES]);
+    List<Map> maps = await dbClient.query(TABLE, columns: [ID, UID, NAME_EN, NAME_VI, DESCRIPTION_EN, DESCRIPTION_VI, PHOTO, CREATED_AT, UPDATED_AT, HAS_CHILD_TOPIC, LIST_PARENT, PARENT_ID]);
+    List<Topic> topics = [];
+    if (maps.length > 0) {
+      for (int i = 0; i < maps.length; i++) {
+        topics.add(Topic.fromMap(maps[i]));
+      }
+    }
+    return topics;
+  }
+
+  Future<List<Topic>> getRootTopics() async {
+    var dbClient = await db;
+    List<Map> maps = await dbClient.query(TABLE, where: '$PARENT_ID = ?', whereArgs: [0], columns: [ID, UID, NAME_EN, NAME_VI, DESCRIPTION_EN, DESCRIPTION_VI, PHOTO, CREATED_AT, UPDATED_AT, HAS_CHILD_TOPIC, LIST_PARENT, PARENT_ID]);
+    List<Topic> topics = [];
+    if (maps.length > 0) {
+      for (int i = 0; i < maps.length; i++) {
+        topics.add(Topic.fromMap(maps[i]));
+      }
+    }
+    return topics;
+  }
+
+  Future<List<Topic>> getChildTopics(parentId) async {
+    var dbClient = await db;
+    List<Map> maps = await dbClient.query(TABLE, where: '$PARENT_ID = ?', whereArgs: [parentId], columns: [ID, UID, NAME_EN, NAME_VI, DESCRIPTION_EN, DESCRIPTION_VI, PHOTO, CREATED_AT, UPDATED_AT, HAS_CHILD_TOPIC, LIST_PARENT, PARENT_ID]);
     List<Topic> topics = [];
     if (maps.length > 0) {
       for (int i = 0; i < maps.length; i++) {
@@ -69,7 +98,7 @@ class DBTopic {
 
   Future<Topic> show(String uid) async {
     var dbClient = await db;
-    List<Map> maps = await dbClient.query(TABLE, where: '$UID = ?', whereArgs: [uid], columns: [ID, UID, NAME, DESCRIPTION, PHOTO, CREATED_AT, UPDATED_AT, TOTAL_STORIES]);
+    List<Map> maps = await dbClient.query(TABLE, where: '$UID = ?', whereArgs: [uid], columns: [ID, UID, NAME_EN, NAME_VI, DESCRIPTION_EN, DESCRIPTION_VI,PHOTO, CREATED_AT, UPDATED_AT, HAS_CHILD_TOPIC, LIST_PARENT, PARENT_ID]);
     if (maps.length != 0) {
       return Topic.fromMap(maps[0]);
     } else {
@@ -79,7 +108,7 @@ class DBTopic {
 
   Future<dynamic> insertOrUpdate(Topic topic) async {
     var dbClient = await db;
-    List<Map> maps = await dbClient.query(TABLE, where: '$UID = ?', whereArgs: [topic.uid], columns: [ID, UID, NAME, DESCRIPTION, PHOTO, CREATED_AT, UPDATED_AT, TOTAL_STORIES]);
+    List<Map> maps = await dbClient.query(TABLE, where: '$UID = ?', whereArgs: [topic.uid], columns: [ID, UID, NAME_EN, NAME_VI, DESCRIPTION_EN, DESCRIPTION_VI,PHOTO, CREATED_AT, UPDATED_AT, HAS_CHILD_TOPIC, LIST_PARENT, PARENT_ID]);
     if (maps.length != 0) {
       if (topic.updatedAt != maps[0]["updatedAt"]) {
         topic.id = maps[0]["id"];

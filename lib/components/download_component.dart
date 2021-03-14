@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import './../components/component_common.dart';
-import './../db/db_story.dart';
+import './../db/db_conversation.dart';
 import './../localization/language_constants.dart';
 import './../main.dart';
 import './../models/story.dart';

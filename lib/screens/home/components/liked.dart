@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import './../../../components/app_layout.dart';
 import './../../../components/component_common.dart';
-import './../../../db/db_story.dart';
+import './../../../db/db_conversation.dart';
 import './../../../main.dart';
 import './../../../models/story.dart';
 import './../../../models/topic.dart';

@@ -27,12 +27,7 @@ class TabMenu {
       TabMenu(
           2,
           "home.tab_bar.saved",
-          Icons.turned_in
-      ),
-      TabMenu(
-          3,
-          "home.tab_bar.dictionary",
-          Icons.table_view
+          Icons.offline_pin
       ),
     ];
   }

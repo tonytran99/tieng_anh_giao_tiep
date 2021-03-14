@@ -234,7 +234,7 @@ class _MyAppState extends State<MyApp> {
 
 
   Widget build(BuildContext context) {
-    print(_locale);
+    print(_checkInitialRoute);
     if (this._locale == null) {
       return Container(
         color: COLOR_E6F0F2,

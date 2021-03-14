@@ -17,10 +17,11 @@ class DBStory {
   static const String NAME_VI = 'nameVi';
   static const String DESCRIPTION_EN = 'descriptionEn';
   static const String DESCRIPTION_VI = 'descriptionVi';
-  static const String CONTENT_EN = 'contentEn';
-  static const String CONTENT_VI = 'contentVi';
   static const String PHOTO = 'photo';
-  static const String AUDIO = 'audio';
+  static const String NORMAL_AUDIO = 'speedAudio';
+  static const String SPEED_AUDIO = 'speedAudio';
+  static const String HAS_AUDIO_SENTENCES = 'hasAudioSentences';
+
   static const String CREATED_AT = 'createdAt';
   static const String UPDATED_AT = 'updatedAt';
   static const String TOPIC_ID = 'topicId';

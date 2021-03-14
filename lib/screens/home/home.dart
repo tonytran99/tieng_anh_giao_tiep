@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import './../../components/app_drawer.dart';
 import './../../components/component_common.dart';
-import './../../db/db_story.dart';
+import './../../db/db_conversation.dart';
 import './../../db/db_topic.dart';
 import './../../localization/language_constants.dart';
 import './../../models/tab.dart';
@@ -32,18 +32,18 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    dbTopic = DBTopic();
-    dbStory = DBStory();
+    // dbTopic = DBTopic();
+    // dbStory = DBStory();
     _tabController = TabController(vsync: this, length: tabMenuList.length);
     _tabController.addListener(_handleTabSelection);
-
-    dbTopic = DBTopic();
-    dbTopic.getTopics().then((value) {
-      setState(() {
-        _topicList = value;
-        // _isLoading = false;
-      });
-    });
+    //
+    // dbTopic = DBTopic();
+    // dbTopic.getTopics().then((value) {
+    //   setState(() {
+    //     _topicList = value;
+    //     // _isLoading = false;
+    //   });
+    // });
   }
 
   @override
@@ -52,9 +52,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     super.dispose();
   }
   _handleTabSelection() {
-    if (_tabController.index != 3) {
-      FocusScope.of(context).unfocus();
-    }
     setState(() {
       _tabIndexActive = _tabController.index;
     });
@@ -180,17 +177,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         elevation: 0.0,
         actions: [
           InkWell(
-              onTap: () {
-                _scaffoldKey.currentState.openEndDrawer();
-              },
-              child: Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 16, 0),
-                child: SvgPicture.asset(
-                  LINK_ASSETS_IMAGES + "drawer_click.svg",
-                  color: COLOR_425C5A,
-                  height: 16,
-                ),
-              )
+            onTap: () {
+              _scaffoldKey.currentState.openEndDrawer();
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 4,
+                horizontal: 8
+              ),
+              child: Icon(
+                Icons.format_align_right_sharp,
+                color: COLOR_425C5A,
+              ),
+            )
           )
         ],
         // bottom: ,
@@ -252,16 +251,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
                       ),
                     ),
-                    Container(
-                      width: size.width,
-                      height: size.height,
-                      decoration: BoxDecoration(
-                          color: COLOR_E6F0F2
-                      ),
-                      child: Dictionary(
-
-                      ),
-                    )
                   ],
                 ),
               ),
