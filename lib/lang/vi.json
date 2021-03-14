@@ -1,0 +1,59 @@
+{
+  "title": "Truyện song ngữ",
+  "drawer": {
+    "label": {
+      "en": "en",
+      "vi": "vi",
+      "home": "Trang chủ",
+      "settings": "Cài đặt",
+      "rate_app": "Đánh giá ứng dụng",
+      "share": "Chia sẻ",
+      "privacy_and_policy": "Quyền riêng tư và chính sách",
+      "exit": "Thoát"
+    }
+  },
+  "home": {
+    "tab_bar": {
+      "topic": "Chủ đề",
+      "liked": "Yêu thích",
+      "saved": "Từ đã lưu",
+      "dictionary": "Từ điển"
+    },
+    "topic": {
+      "stories": "truyện",
+      "story": "truyện"
+    },
+    "dictionary": {
+      "look_up_dictionary": "Tra từ",
+      "enter_word": "Gõ từ",
+      "word": "Từ"
+    }
+  },
+  "story_view": {
+    "label": {
+      "en_en": "en-en",
+      "en_vi": "en-vi",
+      "dictionary_en_en": "Từ Điển Anh-Anh",
+      "dictionary_en_vi": "Từ Điển Anh-Việt"
+    },
+    "tab": {
+      "english": "Tiếng anh",
+      "vietnamese": "Tiếng việt"
+    }
+  },
+  "label": {
+    "loading": "Đang tải",
+    "no_results": "Không có kết quả"
+  },
+  "settings": {
+    "label": {
+      "language": "Ngôn ngữ",
+      "dictionary": "Từ điển",
+      "storyFontSize": "Phông chữ truyện",
+      "textTestFontSize": "Tony Tran",
+      "title": "Điều chỉnh cài đặt bên dưới",
+      "dictionary_en_en_offline": "Tải en-en",
+      "dictionary_en_vi_offline": "Tải en-vi"
+    }
+  }
+}

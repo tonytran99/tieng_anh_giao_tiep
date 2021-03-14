@@ -1,0 +1,59 @@
+{
+  "title": "Bilingual Stories",
+  "drawer": {
+    "label": {
+      "en": "en",
+      "vi": "vi",
+      "home": "Home",
+      "settings": "Settings",
+      "exit": "Exit",
+      "rate_app": "Rate app now",
+      "share": "Share",
+      "privacy_and_policy": "Privacy and policy"
+    }
+  },
+  "home": {
+    "tab_bar": {
+      "topic": "Topic",
+      "liked": "Liked",
+      "saved": "Saved word",
+      "dictionary": "Dictionary"
+    },
+    "topic": {
+      "stories": "stories",
+      "story": "story"
+    },
+    "dictionary": {
+      "look_up_dictionary": "Look up",
+      "enter_word": "Enter word",
+      "word": "Word"
+    }
+  },
+  "story_view": {
+    "label": {
+      "en_en": "en-en",
+      "en_vi": "en-vi",
+      "dictionary_en_en": "English Dictionary",
+      "dictionary_en_vi": "English-Vietnamese Dictionary"
+    },
+    "tab": {
+      "english": "English",
+      "vietnamese": "Vietnamese"
+    }
+  },
+  "label": {
+    "loading": "Loading",
+    "no_results": "No results"
+  },
+  "settings": {
+    "label": {
+      "language": "Language",
+      "dictionary": "Dictionary",
+      "storyFontSize": "Story font size",
+      "textTestFontSize": "Tony Tran",
+      "title": "Adjust settings below",
+      "dictionary_en_en_offline": "Download en-en",
+      "dictionary_en_vi_offline": "Download en-vi"
+    }
+  }
+}
