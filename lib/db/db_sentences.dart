@@ -5,14 +5,14 @@ import 'package:path/path.dart';
 import './../models/topic.dart';
 import './../utils/constants.dart';
 
-class DBTopic {
+class DbSentences {
   static Database _db;
-  static const String TABLE = 'Topic';
-  static const String DB_NAME = 'db_topic.db';
+  static const String TABLE = 'Sentences';
+  static const String DB_NAME = 'db_sentences.db';
 
   static const String ID = 'id';
-  static const String UID = 'uid';
-  static const String NAME_EN = 'nameEn';
+  static const String PERSON_INDEX = 'personIndex';
+  static const String SENTENCES_INDEX = 'nameEn';
   static const String NAME_VI = 'nameVi';
   static const String DESCRIPTION_EN = 'descriptionEn';
   static const String DESCRIPTION_VI = 'descriptionVi';
