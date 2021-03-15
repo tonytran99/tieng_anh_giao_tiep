@@ -21,7 +21,7 @@ class DBStory {
   static const String NORMAL_AUDIO = 'speedAudio';
   static const String SPEED_AUDIO = 'speedAudio';
   static const String HAS_AUDIO_SENTENCES = 'hasAudioSentences';
-
+  static const String LIST_PERSON = 'listPerson';
   static const String CREATED_AT = 'createdAt';
   static const String UPDATED_AT = 'updatedAt';
   static const String TOPIC_ID = 'topicId';
