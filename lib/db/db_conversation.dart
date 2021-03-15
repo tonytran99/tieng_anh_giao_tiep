@@ -18,7 +18,7 @@ class DBStory {
   static const String DESCRIPTION_EN = 'descriptionEn';
   static const String DESCRIPTION_VI = 'descriptionVi';
   static const String PHOTO = 'photo';
-  static const String NORMAL_AUDIO = 'speedAudio';
+  static const String NORMAL_AUDIO = 'normalAudio';
   static const String SPEED_AUDIO = 'speedAudio';
   static const String HAS_AUDIO_SENTENCES = 'hasAudioSentences';
   static const String LIST_PERSON = 'listPerson';
