@@ -1,33 +1,42 @@
 class Topic {
   int id;
   String uid;
-  String name;
-  String description;
+  String nameEn;
+  String nameVi;
+  String descriptionEn;
+  String descriptionVi;
   String photo;
   String createdAt;
   String updatedAt;
-  int totalStories;
+  String listParent;
+  String parentId;
   Topic(
     this.id,
     this.uid,
-    this.name,
-    this.description,
+    this.nameEn,
+    this.nameVi,
+    this.descriptionEn,
+    this.descriptionVi,
     this.photo,
     this.createdAt,
     this.updatedAt,
-    this.totalStories
+    this.listParent,
+    this.parentId
   );
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'id': id,
       'uid': uid,
-      'name': name,
-      'description': description,
+      'nameEn': nameEn,
+      'nameVi': nameVi,
+      'descriptionEn': descriptionEn,
+      'descriptionVi': descriptionVi,
       'photo': photo,
       'createdAt': createdAt,
       'updatedAt': updatedAt,
-      'totalStories': totalStories,
+      'listParent': listParent,
+      'parentId': parentId
     };
     return map;
   }
@@ -35,12 +44,15 @@ class Topic {
   Topic.fromMap(Map<String, dynamic> map) {
     id = map['id'] ?? null;
     uid = map['uid'].toString();
-    name = map['name'];
-    description = map['description'];
+    nameEn = map['nameEn'];
+    nameVi = map['nameVi'];
+    descriptionEn = map['descriptionEn'];
+    descriptionVi = map['descriptionVi'];
     photo = map['photo'];
     createdAt = map['createdAt'];
     updatedAt = map['updatedAt'];
-    totalStories = map['totalStories'];
+    listParent = map['listParent'];
+    parentId = map['parentId'];
   }
 
   @override
@@ -49,12 +61,15 @@ class Topic {
         '{'
         '"id": $id, '
         '"uid": $uid, '
-        '"name": $name, '
-        '"description": $description, '
+        '"nameEn": $nameEn, '
+        '"nameVi": $nameVi, '
+        '"descriptionEn": $descriptionEn, '
+        '"descriptionVi": $descriptionVi, '
         '"photo": $photo, '
         '"createdAt": $createdAt, '
         '"updatedAt": $updatedAt, '
-        '"totalStories": $totalStories, '
+        '"listParent": $listParent, '
+        '"parentId": $parentId, '
         '}';
   }
 }
